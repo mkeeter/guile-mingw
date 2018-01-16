@@ -1,0 +1,15 @@
+--- guile-2.2.0/libguile/posix-w32.h.orig	2018-01-16 14:59:13.000000000 -0500
++++ guile-2.2.0/libguile/posix-w32.h	2018-01-16 14:59:45.000000000 -0500
+@@ -75,9 +75,9 @@
+ SCM_INTERNAL int waitpid (intptr_t, int *, int);
+ SCM_INTERNAL int w32_status_to_termsig (DWORD status);
+ 
+-SCM_INTERNAL int start_child (const char *exec_file, char **argv,
+-                              int reading, int c2p[2], int writing, int p2c[2],
+-                              int infd, int outfd, int errfd);
++SCM_INTERNAL intptr_t start_child (const char *exec_file, char **argv,
++                                   int reading, int c2p[2], int writing,
++                                   int p2c[2], int infd, int outfd, int errfd);
+ 
+ SCM_INTERNAL int kill (int pid, int sig);
+ 

@@ -1,0 +1,14 @@
+--- guile-2.2.0/libguile/socket.c.orig	2018-01-16 14:44:30.000000000 -0500
++++ guile-2.2.0/libguile/socket.c	2018-01-16 14:44:17.000000000 -0500
+@@ -40,7 +40,11 @@
+ #include <sys/un.h>
+ #endif
+ #include <netinet/in.h>
++# if (defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__
++#include <winsock.h>
++#else
+ #include <netinet/tcp.h>
++#endif
+ #include <netdb.h>
+ #include <arpa/inet.h>
+ 

@@ -1,0 +1,11 @@
+--- guile-2.2.0/libguile/stime.c.orig	2018-01-16 16:28:37.000000000 -0500
++++ guile-2.2.0/libguile/stime.c	2018-01-16 16:28:41.000000000 -0500
+@@ -699,7 +699,7 @@
+ 					 scm_from_locale_string ("0")));
+ 
+ 	have_zone = 1;
+-        scm_pthread_mutex_lock (&tz_lock);
++        scm_i_pthread_mutex_lock (&tz_lock);
+ 	oldenv = setzone (zone, SCM_ARG2, FUNC_NAME);
+       }
+ #endif
