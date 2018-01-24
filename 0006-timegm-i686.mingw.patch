@@ -1,0 +1,8 @@
+--- guile-2.2.3/lib/timegm.c.old	2018-01-23 16:59:18.691470600 -0500
++++ guile-2.2.3/lib/timegm.c	2018-01-23 16:59:26.211490800 -0500
+@@ -38,3 +38,5 @@
+   tmp->tm_isdst = 0;
+   return __mktime_internal (tmp, __gmtime_r, &gmtime_offset);
+ }
++
++#include "mktime.c"
